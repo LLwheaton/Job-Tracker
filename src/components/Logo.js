@@ -1,5 +1,5 @@
-import React from 'react';
-import logo from '../assets/images/logo.svg';
+import React from 'react'
+import logo from '../assets/images/logo.svg'
 
 function Logo() {
   return (
@@ -7,4 +7,4 @@ function Logo() {
   )
 }
 
-export default Logo;
+export default Logo
