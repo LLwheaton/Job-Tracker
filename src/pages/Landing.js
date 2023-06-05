@@ -15,7 +15,7 @@ function Landing() {
             <div className='info'>
                 <h1>job <span>tracking</span> app</h1>
                 <p>Vape wayfarers sriracha before they sold out cray sus fingerstache cliche subway tile asymmetrical intelligentsia migas. Ascot beard stumptown four dollar toast literally 3 wolf moon viral activated charcoal fixie typewriter blog dreamcatcher.</p>
-                <Link to="/register" className='btn btn-hero'>Login/Register</Link>
+                <Link to='/register' className='btn btn-hero'>Login/Register</Link>
             </div>
             <img src={main} alt='job hunt' className='img main-img' />
         </div>
