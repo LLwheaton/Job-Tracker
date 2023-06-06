@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Logo, FormRow } from '../components'
+import { Logo, FormRow, Alert } from '../components'
 import Wrapper from '../assets/wrappers/RegisterPage'
 
 const initialState = {
@@ -7,11 +7,16 @@ const initialState = {
   email: '',
   password: '',
   isMember: false,
+  showAlert: false,
 }
 
 
 function Register() {
   const [values, setValues] = useState(initialState);
+
+  const toggleMember = () => {
+    setValues({...values, isMember:!values.isMember});
+  }
   
   const handleChange = (event) => {
     console.log(event.target);
@@ -27,14 +32,17 @@ function Register() {
     <Wrapper className='full-page'>
       <form className='form' onSubmit={onSubmit}>
         <Logo />
-        <h3>Login</h3>
+        <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+        {values.showAlert && <Alert />}
         {/* name input */}
-        <FormRow 
-          type='text'
-          name='name'
-          value={values.name}
-          handleChange={handleChange}
-        />
+        {!values.isMember && (
+          <FormRow 
+            type='text'
+            name='name'
+            value={values.name}
+            handleChange={handleChange}
+          />
+        )}
         {/* email input */}
         <FormRow 
           type='email'
@@ -50,6 +58,12 @@ function Register() {
           handleChange={handleChange}
         />
         <button type='submit' className='btn btn-block'>Submit</button>
+        <p>
+          {!values.isMember ? 'Already a member?' : 'Not a member yet?'}
+          <button type='button' onClick={toggleMember} className='member-btn'>
+            {values.isMember ? 'Register' : 'Login'}
+          </button>
+        </p>
       </form>
     </Wrapper>
   )
